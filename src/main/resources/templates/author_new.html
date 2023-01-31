@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NUEVO AUTOR</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<body>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class="text-center">Nuevo Autor</h1>
+            <div class="card-body">
+                <form th:action="@{../author}" th:object="${author}" method="POST">
+                    <div class="form-group">
+                        <label>Nombre </label>
+                        <input type="text" name="firstName" th:field="*{first_Name}" class="form-control" placeholder="Nombre" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Apellido </label>
+                        <input type="text" name="lastName" th:field="*{last_Name}" class="form-control" placeholder="Apellido" required>
+                    </div>
+                    <br>
+                    <div class="box-footer">
+                        <button class="btn btn-success">Guardar</button>
+                        <a th:href="@{http://localhost:8900/authors/listar}" class="btn btn-default">Regresar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

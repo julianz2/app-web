@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LISTAR AUTORES</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<body>
+<div class="container" style="padding-top: 20px;">
+  <div class="row">
+    <div class="col-md-11"><h2> AUTORES </h2></div>
+
+    <div class="col-md-1">
+      <a th:href="@{../author/add}" class="btn btn-primary">Agregar</a>
+    </div>
+  </div>
+  <br>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="author : ${author}">
+      <td th:text="${author.id}"></td>
+      <td th:text="${author.first_Name}"></td>
+      <td th:text="${author.last_Name}"></td>
+
+      <td>
+        <div class="center-block">
+          <a th:href="@{../authors/edit/{id}(id=${author.id})}" class="btn btn-default">Editar</a>
+          <a th:href="@{../singers/{id}(id=${author.id})}" class="btn btn-danger">Eliminar</a>
+        </div>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+</body>
+</html>
